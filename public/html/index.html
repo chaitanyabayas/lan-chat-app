@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css"> <!-- Link to your custom CSS file -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/main.js" defer></script>
+    <!-- <style>
+        /* Add styles for scrollable message containers */
+        #group-messages, #private-messages {
+            max-height: 400px; /* Adjust height as needed */
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        #group-form, #private-form {
+            margin-top: 10px;
+        }
+    </style> -->
+</head>
+<body>
+    <div class="container">
+        <h1>Chat Application</h1>
+
+        <!-- Logout Button -->
+        <a href="/logout" class="btn btn-danger mb-3">Logout</a>
+
+        <!-- Group Chat Section -->
+        <h2>Group Chat</h2>
+        <div id="group-messages" class="list-unstyled"></div>
+        <form id="group-form">
+            <input id="group-input" class="form-control" autocomplete="off" placeholder="Group message" />
+            <button class="btn btn-primary mt-2">Send</button>
+        </form>
+
+        <!-- Private Chat Section -->
+        <h2>Private Chat</h2>
+        <div id="private-chat-boxes"></div>
+        <!-- <div id="private-messages" class="list-unstyled"></div> -->
+        <div id="private-message-error" class="text-danger mt-2"></div>
+        <form id="private-form">
+            <input id="receiver" class="form-control" placeholder="Receiver Username" />
+            <input id="private-input" class="form-control mt-2" autocomplete="off" placeholder="Private message" />
+            <button class="btn btn-primary mt-2">Send</button>
+        </form>
+    </div>
+</body>
+</html>
